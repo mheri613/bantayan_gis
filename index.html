@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>WebGIS - Heri</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="resources/ol/ol.css">
+    <link rel="stylesheet" href="resources/layerswitcher/ol-layerswitcher.css">
+    <link rel="stylesheet" href="ol3-sidebar.css" />
+    
+
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        html,
+        body,
+        #map {
+            height: 100%;
+        }
+
+        .lorem {
+            font-style: italic;
+            color: #AAA;
+        }
+
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            max-width: 200px;
+            margin: auto;
+            text-align: center;
+            font-family: arial;
+        }
+
+        .title {
+            color: grey;
+            font-size: 18px;
+        }
+
+        button {
+            border: none;
+            outline: 0;
+            display: inline-block;
+            padding: 8px;
+            color: white;
+            background-color: #000;
+            text-align: center;
+            cursor: pointer;
+            width: 100%;
+            font-size: 18px;
+        }
+
+        a {
+            text-decoration: none;
+            font-size: 22px;
+            color: black;
+        }
+
+        button:hover,
+        a:hover {
+            opacity: 0.7;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="sidebar" class="sidebar collapsed">
+        <!-- Nav tabs -->
+        <div class="sidebar-tabs">
+            <ul role="tablist">
+                <li><a href="#home" role="tab"><i class="fa fa-bars"></i></a></li>
+                <li><a href="#profile" role="tab"><i class="fa fa-user"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- Tab panes -->
+        <div class="sidebar-content">
+            <div class="sidebar-pane" id="home">
+                <h1 class="sidebar-header">Informasi</h1>
+                <div id="info">&nbsp;</div>
+                <p>Website ini dibuat untuk memenuhi tugas WebGIS pada mata kuliah Praktikum Geographic Information System.</p>
+                <p>Digitasi yang ada berupa</p>
+                <ul>
+                    <li>Point</li>
+                    <li>Polygon</li>
+                    <li>Polyline</li>
+                </ul>
+
+                <p>Di bawah ini terdapat nama-nama digitasi yang sudah dibuat.</p>
+
+                <h3>Map</h3>
+                <input type="checkbox" value="Open Street Map" checked onchange="toggleLayer(event)">
+                <label for="osm">Open Street Map</label>
+
+                <div id="mapLayers">
+                    <div id="pointGroup">
+                        <h4>Digitasi Point</h4>
+                    </div>
+                    <div id="polygonGroup">
+                        <h4>Digitasi Polygon</h4>
+                    </div>
+                    <div id="polylineGroup">
+                        <h4>Digitasi Polyline</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar-pane" id="profile">
+                <h1 class="sidebar-header">Tentang Saya<span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
+                </h1>
+
+                <div class="card" style="margin-top: 12px;">
+                    <img src="peterparker.jpg" alt="John" style="max-height:100%; max-width:100%;">
+                    <h4>Peter Parker</h4>
+                    <h6>Tugas GIS - WebGIS</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="loader" style="display: none;">Loading...</div>
+
+    <div id="map" class="sidebar-map"></div>
+    <div id="info1">&nbsp;</div>
+    <div id="popup" class="popup">
+        <div id="popup-content"></div>
+        <button id="popup-closer" class="popup-closer">Close</button>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="resources/ol/ol.js"></script>
+    <script src="ol3-sidebar.js"></script>
+    <script src="resources/layerswitcher/ol-layerswitcher.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>

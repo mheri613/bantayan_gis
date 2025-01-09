@@ -1,0 +1,110 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+#map {
+    width: 100%;
+    height: 400px;
+}
+
+.header {
+    grid-area: header;
+    font-size: 25px;
+    height: 50px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-bottom: 20px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-areas: 
+        'header header'
+        'left right';
+
+}
+
+.left  {
+    grid-area: left;
+    width: 20vw;
+    height: 100vh;
+    border: 5px solid grey;
+}
+
+.toc {
+    margin-left: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.right {
+    grid-area: right;
+    height: 100vh;
+    border: 5px solid grey;
+}
+
+.popup {
+    position: absolute;
+    background: white;
+    padding: 15px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-size: 14px;
+    z-index: 1000;
+}
+
+.popup-closer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+}
+
+.ol-popup {
+    position: absolute;
+    background-color: white;
+    box-shadow: 0 1px 4px rgb(0, 0, 0, 0.2);
+    padding-right: 15px;
+    border: 1px solid #cccccc;
+    bottom: 12px;
+    left: -50px;
+    min-height: 100px;
+    min-width: 300px;
+    transition: ease;
+}
+
+.ol-popup:after, .ol-popup::before {
+    top: 100%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+
+}
+
+.ol-popup::after {
+    border-top-color: white;
+    border-width: 10px;
+    left: 48px;
+    margin-left: 10px;
+}
+
+.ol-popup::before {
+    border-top-color: white;
+    border-width: 11px;
+    left: 48px;
+    margin-left: -11px;
+}
+
+.ol-popup-closer {
+    text-decoration: none;
+    position: absolute;
+    top: 2px;
+    right: 8px;
+}
+
+.ol-popup-closer:after {
+    content: 'X';
+}
